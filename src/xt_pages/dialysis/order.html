@@ -1,0 +1,714 @@
+<style>
+    .dialysis-print-order{
+    width:960px; margin:0 auto
+} 
+
+.dialysis-print-order .order-yy-name{
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+.dialysis-print-order .order-title{
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+    font-size: 22px;
+    padding: 10px 20px 20px 20px;
+}
+.dialysis-print-order .table-box {
+    margin-top: 10px;
+    width: 100%;
+    line-height: 20px;
+    font-size: 14px;
+}
+.dialysis-print-order .print-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    line-height: 35px;
+    font-size: 14px;
+}
+.dialysis-print-order .print-table-no {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.dialysis-print-order .under-line {
+    border-bottom: 1px solid #999;
+    width: 95%;
+    text-align: center;
+    margin-left: 2px;
+}
+.dialysis-print-order .title-box{
+    text-align: center;
+    font-size: 20px;
+    border: 1px solid #666;
+    letter-spacing: 10px;
+}
+    </style>
+
+
+<div  id="dialysis-print-box">
+    <div class="dialysis-print-order" >
+        <div class="order-yy-name">{{orgname}}</div>
+        <div class="order-title">血液净化治疗记录单</div>
+        <table class="table-box">
+            <tbody>
+                <tr>
+                    <td width="50">姓名: </td>
+                    <td width="90">
+                        <div class="under-line">&nbsp;{{patientInfo.name}}</div>
+                    </td>
+                    <td width="50">性别: </td>
+                    <td width="120">
+                        <div>
+                            <label for="gender_1" class=""> <input id="gender_1" name="gender" type="radio" value="1"> 男</label>
+                            <label for="gender_2"> <input id="gender_2" name="gender" type="radio" value="2"> 女</label>
+                        </div>
+                    </td>
+                    <td width="40">年龄</td>
+                    <td width="40">
+                        <div class="under-line">{{patientInfo.age}}&nbsp;岁</div>
+                    </td>
+                    <td width="60">透析号</td>
+                    <td width="90">
+                        <div class="under-line">&nbsp;{{patientInfo.dialysis_no}}</div>
+                    </td>
+                    <td width="40">来自</td>
+                    <td width="60">
+                        <div class="under-line">&nbsp;
+                            <span v-if="patientInfo.source==1">门诊</span>
+                            <span v-else-if="patientInfo.source==2">住院</span>
+                        </div>
+                    </td>
+                    <td width="40">病区</td>
+                    <td width="75">
+                        <div class="under-line">&nbsp;{{patientInfo.DialysisSchedule.DeviceZone.name}}</div>
+                    </td>
+                    <td width="85">床号(机号)</td>
+                    <td width="60">
+                        <div class="under-line">&nbsp;{{patientInfo.DialysisSchedule.DeviceNumber.number}}</div>
+                    </td>
+                    <td width="80">透析次数</td>
+                    <td width="40">
+                        <div class="under-line">&nbsp;{{patientInfo.total_dialysis}}</div>
+                    </td>
+                    <td width="40">日期</td>
+                    <td width="120">
+                        <div class="under-line">&nbsp;<span>{{queryParams.xtdate}}</span></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table-box">
+            <tbody>
+                <tr>
+                    <td width="40">备注</td>
+                    <td width="">
+                        <div class="under-line">&nbsp;{{patientInfo.remark}}</div>
+                    </td>
+                    <td width="100">首次透析时间</td>
+                    <td width="130">
+                        <div class="under-line">&nbsp;{{patientInfo.first_dialysis_date}}</div>
+                    </td>
+                    <td width=""></td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td width="50%" class="title-box">透析前评估</td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom:15px;">
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="13">T</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{predialysis.temperature}}</div>
+                                    </td>
+                                    <td width="30">℃</td>
+                                    <td width="30"></td>
+
+                                    <td width="13">R</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{predialysis.breathing_rate}}</div>
+                                    </td>
+                                    <td width="60">次/分</td>
+                                    <td width="30"></td>
+
+                                    <td width="20">BP</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{predialysis.systolic_blood_pressure}}/{{predialysis.diastolic_blood_pressure}}</div>
+                                    </td>
+                                    <td width="20">mmHg</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="print-table">
+                            <tbody>
+                                <tr>
+                                    <td width="55%">
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90">透析间期：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{predialysis.dialysis_interphase}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90">透前症状：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{predialysis.symptom_before_dialysis}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="60">内瘘：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{predialysis.internal_fistula}}</div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="60">导管：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{predialysis.catheter}}</div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="75">合并症：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{predialysis.complication}}</div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="110">前次透析后：</td>
+                                                    <td width="">
+                                                        <div class="under-line">&nbsp;{{predialysis.last_post_dialysis}}</div>
+                                                    </td>
+                                                    <td width="20"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90">透前体重：</td>
+                                                    <td width="">
+                                                        <div class="under-line">&nbsp;{{predialysis.weight_before}}</div>
+                                                    </td>
+                                                    <td width="20">kg</td>
+                                                    <td width="30"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90">附加物重：</td>
+                                                    <td width="">
+                                                        <div class="under-line">&nbsp;{{predialysis.additional_weight}}</div>
+                                                    </td>
+                                                    <td width="20">kg</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td class="title-box">透析后评估</td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom:15px;">
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="20">BP</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{afterdialysis.systolic_blood_pressure}}/{{afterdialysis.diastolic_blood_pressure}}</div>
+                                    </td>
+                                    <td width="20">mmHg</td>
+                                    <td width="30"></td>
+
+                                    <td width="13">T</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{afterdialysis.temperature}}</div>
+                                    </td>
+                                    <td width="30">℃</td>
+                                    <td width="30"></td>
+                                    <td width="13">R</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{afterdialysis.breathing_rate}}</div>
+                                    </td>
+                                    <td width="60">次/分</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="print-table">
+                            <tbody>
+                                <tr>
+                                    <td width="50%">
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="100">实际超滤量：</td>
+                                                    <td width="">
+                                                        <div class="under-line">&nbsp;{{afterdialysis.actual_ultrafiltration}}</div>
+                                                    </td>
+                                                    <td width="20">ml</td>
+                                                    <td width="30"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="100">实际置换量：</td>
+                                                    <td width="">
+                                                        <div class="under-line">&nbsp;{{afterdialysis.actual_displacement}}</div>
+                                                    </td>
+                                                    <td width="20">L</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%">
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="60">凝血：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.cruor}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="90">透后症状：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.symptom_after_dialysis}}</div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="60">内瘘：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.internal_fistula}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="60">导管：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.catheter}}</div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="75">并发症：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.complication}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="table-box">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="150">实际治疗时间：</td>
+                                                    <td>
+                                                        <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_hour}} h {{afterdialysis.actual_treatment_minute}} min </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td width="50%" class="title-box">透析处方</td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom:15px;">
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="90">透析方式：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.mode}}</div>
+                                    </td>
+                                    <td width="100">处方脱水量：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.dewater_amount}}</div>
+                                    </td>
+                                    <td width="20">L</td>
+                                    <td width="90">透析时长：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.dialysis_duration}}</div>
+                                    </td>
+                                    <td width="20">h</td>
+                                    <td width="">&nbsp;</td>
+                                    <td width="90">置换方式：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.replacement}}</div>
+                                    </td>
+                                    <td width="">&nbsp;</td>
+                                    <td width="100">置换总量：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.replacement_total}}</div>
+                                    </td>
+                                    <td width="30">L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="75">透析器：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.perfusion_apparatus_name}}</div>
+                                    </td>
+                                    <td width="20"></td>
+                                    <td width="60">机号：</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.device.name}}</div>
+                                    </td>
+                                    <td width=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="75">血流量：</td>
+                                    <td width="60">
+                                        <div class="under-line">&nbsp;{{prescription.blood_flow_volume}}</div>
+                                    </td>
+                                    <td width="90">ml/min</td>
+                                    <td width=""></td>
+
+                                    <td width="60">抗凝剂</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant}}</div>
+                                    </td>
+                                    <td width="">&nbsp;</td>
+
+                                    <template v-if="AlPanel.shouji != -1">
+                                    <td width="40">首剂</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant_shouji}}</div>
+                                    </td>
+                                    <td width="">{{AlPanel.shouji_unit}}</td>
+                                    </template>
+
+                                    <template v-if="AlPanel.weichi != -1">
+                                    <td width="40">维持</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant_weichi}}</div>
+                                    </td>
+                                    <td width="">{{AlPanel.weichi_unit}}</td>
+                                    </template>
+
+                                    <template v-if="AlPanel.zongliang != -1">
+                                    <td width="40">总量</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant_zongliang}}</div>
+                                    </td>
+                                    <td width="">{{AlPanel.zongliang_unit}}</td>
+                                    </template>
+
+                                    <template v-if="AlPanel.gaimingcheng != -1">
+                                    <td width="60">钙名称</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant_gaimingcheng}}</div>
+                                    </td>
+                                    <td width=""></td>
+                                    </template>
+
+                                    <template v-if="AlPanel.gaijiliang != -1">
+                                    <td width="40">剂量</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.anticoagulant_gaijiliang}}</div>
+                                    </td>
+                                    <td>{{AlPanel.gaijiliang_unit}}</td>
+                                    </template>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="100">透析液配方：</td>
+                                    <td width="18">钾</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.kalium}}</div>
+                                    </td>
+                                    <td width="75">mmol/L</td>
+                                    <td width="18">钠</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.sodium}}</div>
+                                    </td>
+                                    <td width="75">mmol/L</td>
+                                    <td width="18">钙</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.calcium}}</div>
+                                    </td>
+                                    <td width="75">mmol/L</td>
+                                    <td width="75">碳酸氢根</td>
+                                    <td width="">
+                                        <div class="under-line">&nbsp;{{prescription.bicarbonate}}</div>
+                                    </td>
+                                    <td width="75">mmol/L</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td  class="title-box">临时医嘱</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="print-table-no" border="1" count="0">
+            <tbody>
+                <tr>
+                    <td width="100">时间</td>
+                    <td>医嘱内容</td>
+                    <td width="75">医生签名</td>
+                    <td width="75">执行时间</td>
+                    <td width="75">执行人员</td>
+                    <td width="75">核对人员</td>
+                </tr>
+                <tr v-for="advice in advices" :key="advice.id">
+                    <td> {{advice.start_time | parseTime('{y}-{m}-{d} {h}:{i}')}}</td>
+                    <td> 
+                        <span v-if="advice.parent_id>0">└</span>
+                        <span >{{advice.advice_name }}</span>
+                        <span >{{advice.advice_desc}}</span>
+                        <span v-if="advice.single_dose">{{advice.single_dose}}{{advice.single_dose_unit}}</span>
+                        <span v-if="advice.prescribing_number">{{advice.prescribing_number}}{{advice.prescribing_number_unit}}</span>
+                        <span >{{advice.delivery_way}}</span>
+                        <span >{{advice.execution_frequency}}</span>
+                    </td>
+                    <td>{{getXuserName(advice.advice_doctor)}}</td>
+                    <td><span v-if="advice.execution_time!=0" >{{advice.execution_time| parseTime('{y}-{m}-{d} {h}:{i}:{s}')}}</span></td>
+                    <td><span v-if="advice.parent_id==0" >{{getXuserName(advice.execution_staff)}}</span></td>
+                    <td><span v-if="advice.parent_id==0" >{{getXuserName(advice.checker)}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td  class="title-box">监测记录</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="print-table-no" border="1" count="0">
+            <tbody>
+                <tr>
+                    <td >时间</td>
+                    <td >血压<font size="2">（mmHg）</font></td>
+                    <td >脉率<font size="2">（次/分）</font></td>
+                    <td >呼吸<font size="2">（次/分）</font></td>
+                    <td >血流量<font size="2">（ml/min）</font></td>
+                    <td >静脉压<font size="2">（mmHg）</font></td>
+                    <td >跨膜压<font size="2">（mmHg）</font></td>
+                    <td >超滤量<font size="2"> (ml/h)</font></td>
+                    <td >钠浓度<font size="2"> (mmol/L)</font></td>
+                    <td >透析液温度<font size="2"> (℃)</font></td>
+                    <td >置换率<font size="2"> (ml/min)</font></td>
+                    <td >置换量<font size="2"> (L)</font></td>
+                    
+                    <td width="" style="min-width:45px;">病情变化</td>
+                    <td width="" style="min-width:120px;">处理</td>
+                    <td width="" style="min-width:45px;">结果</td>
+                </tr>
+                <tr v-for="monitor in monitors" :key="monitor.id">
+                    <td>&nbsp;{{monitor.monitoring_date | parseTime('{y}-{m}-{d}')}} {{monitor.monitoring_time}}</td>
+                    <td>&nbsp;{{monitor.systolic_blood_pressure}} / {{monitor.diastolic_blood_pressure}}</td>
+                    <td>&nbsp;{{monitor.pulse_frequency}}</td>
+                    <td>&nbsp;{{monitor.breathing_rate}}</td>
+                    <td>&nbsp;{{monitor.blood_flow_volume}}</td>
+                    <td>&nbsp;{{monitor.venous_pressure}}</td>
+                    <td>&nbsp;{{monitor.transmembrane_pressure}}</td>
+                    <td>&nbsp;{{monitor.ultrafiltration_volume}}</td>
+                    <td>&nbsp;{{monitor.sodium_concentration}}</td>
+                    <td>&nbsp;{{monitor.dialysate_temperature}}</td>
+                    <td>&nbsp;{{monitor.replacement_rate}}</td>
+                    <td>&nbsp;{{monitor.displacement_quantity}}</td>
+                    <td>&nbsp;{{monitor.symptom}}</td>
+                    <td>&nbsp;{{monitor.dispose}}</td>
+                    <td>&nbsp;{{monitor.result}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="print-table" border="1">
+            <tbody>
+                <tr>
+                    <td class="title-box">治疗小结</td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom:15px;">
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="75">透后宣教:</td>
+                                    <td width="">
+                                        <div class="under-line" style="text-align:left;">&nbsp;{{summary.mission}}</div>
+                                    </td>
+                                    <td width=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="75">治疗小结</td>
+                                    <td width="">
+                                        <div class="under-line" style="text-align:left;">&nbsp;{{summary.dialysis_summary}}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <table class="table-box">
+                            <tbody>
+                                <tr>
+                                    <td width="75">
+                                        换药护士
+                                    </td>
+                                    <td width="90">
+                                        <div class="under-line">&nbsp; </div>
+                                    </td>
+                                    <td width=""></td>
+                                    <td width="75">治疗护士</td>
+                                    <td width="90">
+                                        <div class="under-line">&nbsp;</div>
+                                    </td>
+                                    <td width=""></td>
+                                    <td width="75">核对人员</td>
+                                    <td width="90">
+                                        <div class="under-line">&nbsp;</div>
+                                    </td>
+                                    <td width=""></td>
+                                    <td width="75">下机护士</td>
+                                    <td width="90">
+                                        <div class="under-line">&nbsp;</div>
+                                    </td>
+                                    <td width=""></td>
+                                    <td width="75">治疗医生</td>
+                                    <td width="90">
+                                        <div class="under-line">&nbsp;</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
