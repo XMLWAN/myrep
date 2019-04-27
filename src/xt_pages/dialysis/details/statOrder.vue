@@ -23,7 +23,7 @@
           <span >{{advice.advice_desc}}</span>
           <!-- <span v-if="advice.drug_spec">{{advice.drug_spec}}{{advice.drug_spec_unit}}</span> -->
           <span v-if="advice.prescribing_number">* {{advice.prescribing_number}}{{advice.prescribing_number_unit}}</span>
-          <span v-if="advice.single_dose">单次用量 {{advice.single_dose}}{{advice.single_dose_unit}}</span>
+          <span v-if="advice.single_dose != 0">单次用量 {{advice.single_dose}}{{advice.single_dose_unit}}</span>
           <span >{{advice.delivery_way}}</span>
           <span >{{advice.execution_frequency}}</span>
         </td>

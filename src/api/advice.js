@@ -245,6 +245,14 @@ export function CreateSubAdvice(params){
 }
 
 
+export function updateTemplateName(params) {
+  return request({
+    url: '/api/template/modify',
+    method: 'post',
+    params: params
+  })
+}
+
 
 
 

@@ -135,12 +135,14 @@
                   size="mini"
                   v-if="isShow(scope.$index, scope.row)"
                   @click="handleUpdateAdviceTemplate(scope.row, scope.$index)"
-                >编辑</el-button>
+                >编辑
+                </el-button>
                 <el-button
                   size="mini"
                   type="danger"
                   @click="handleDeleteAdviceTemplate(scope.row, scope.$index)"
-                >  删除</el-button>
+                > 删除
+                </el-button>
               </template>
             </el-table-column>
 
@@ -227,8 +229,8 @@
                 </el-col>
                 <el-col :span="12">
 
-                  <el-form-item label="规格"  prop="advice_desc">
-                    <el-input v-model="templateForm.advice_desc" ></el-input>
+                  <el-form-item label="规格" prop="advice_desc">
+                    <el-input v-model="templateForm.advice_desc"></el-input>
                   </el-form-item>
 
 
@@ -366,9 +368,9 @@
 
                 </el-col>
                 <el-col :span="12">
-                <el-form-item label="规格"  prop="advice_desc">
-                  <el-input v-model="templateFormEdit.advice_desc" ></el-input>
-                </el-form-item>
+                  <el-form-item label="规格" prop="advice_desc">
+                    <el-input v-model="templateFormEdit.advice_desc"></el-input>
+                  </el-form-item>
                   <!-- <el-form-item label="药品规格 :" prop="drug_spec">
                     <el-col :span="8">
                       <el-input v-model="templateFormEdit.drug_spec"></el-input>
@@ -495,7 +497,7 @@
             <div>
               <el-form ref="form" :model="form" :rule="formRules" label-width="100px">
                 <el-form-item label="模版名称" style="width: 300px" prop="name">
-                  <el-input disabled :value="current_template_name" ></el-input>
+                  <el-input v-model="form.name" ></el-input>
                 </el-form-item>
               </el-form>
 
@@ -508,7 +510,7 @@
 
 
               <el-table ref="table" :data="adviceTableDataTwo" border highlight-current-row max-height="300">
-                <el-table-column label="医嘱内容"  >
+                <el-table-column label="医嘱内容">
                   <template slot-scope="scope">
                     <span v-if="scope.row.parent_id == 0">{{scope.row.advice_name}}</span>
                     <span v-if="scope.row.parent_id > 0"> &emsp;{{scope.row.advice_name}}</span>
@@ -548,7 +550,7 @@
             </div>
             <div slot="footer" class="dialog-footer">
               <el-button @click="cancelTableHandleTwo">取消</el-button>
-              <el-button type="primary" @click="cancelTableHandleTwo">确 定</el-button>
+              <el-button type="primary" @click="modifyTemplateName">确 定</el-button>
             </div>
           </el-dialog>
           <el-dialog title="新增医嘱" :visible.sync="templateFormTwoVisible" width="700px">
@@ -565,7 +567,7 @@
               <el-row>
                 <el-col :span="12">
                   <el-form-item label="规格 :" required prop="advice_desc">
-                    <el-input v-model="templateForm.advice_desc" ></el-input>
+                    <el-input v-model="templateForm.advice_desc"></el-input>
                   </el-form-item>
                   <!-- <el-form-item label="药品规格 :" prop="drug_spec">
                     <el-col :span="8">
@@ -960,6 +962,7 @@
 
 <style>
   @import "../../../static/css/table_row.css";
+
   .tab-container {
     margin: 30px;
   }
@@ -987,7 +990,8 @@
     UpdateAdviceTemplate,
     UpdateDrugDic,
     UpdateDrugWay,
-    UpdateExecutionFrequency
+    UpdateExecutionFrequency,
+    updateTemplateName,
   } from "@/api/advice";
 
   import {getDataConfig} from '@/utils/data';
@@ -1002,10 +1006,10 @@
         currentObject: {},
         tempArr: [],
         sameRowArr: [],
-        advice_content_name:"",
+        advice_content_name: "",
         table_current_index: -1,
         adviceTableData: [],
-        templateName:"",
+        templateName: "",
         adviceTableDataTwo: [],
         table_current_index_two: -1,
         currentIndex: -1,
@@ -1019,7 +1023,7 @@
         templateFormVisible: false,
         templateTableTwoVisible: false,
         templateEditFormVisible: false,
-        edit_advice_name:"",
+        edit_advice_name: "",
         templateTableVisible: false,
         templateFormTwoVisible: false,
         templateEditFormTwoVisible: false,
@@ -1180,7 +1184,7 @@
       },
       newRecordAction() {
         this.dialogTitle = "新增医嘱内容"
-        this.advice_content_name ="医嘱内容"
+        this.advice_content_name = "医嘱内容"
         this.isEdit = false;
         this.parent_id = 0;
         this.isAddChild = false
@@ -2014,7 +2018,7 @@
         }
       }, cellMouseEnter: function (row, column, cell, event) {
 
-        if(column.label == "模版名称"){
+        if (column.label == "模版名称") {
           this.sameRowArr.forEach((arr, i) => {
             if (arr.indexOf(row.index) != -1) {
               this.hoverOrderArr = arr
@@ -2022,7 +2026,7 @@
           })
 
 
-        }else if(column.label == "操作"){
+        } else if (column.label == "操作") {
           this.sameRowArr.forEach((arr, i) => {
             if (arr.indexOf(row.index) != -1) {
               this.hoverOrderArr = arr
@@ -2030,20 +2034,18 @@
           })
 
 
-        }else{
+        } else {
 
           this.hoverOrderArr = []
-
 
 
         }
 
 
-
       }, cellMouseLeave: function (row, column, cell, event) {
         this.hoverOrderArr = []
       }, openEdit(index, row) {
-        this.hoverOrderArr =  []
+        this.hoverOrderArr = []
         this.currentIndex = index
         this.templateFormEdit.drug_spec_unit = row.drug_spec_unit
         this.templateFormEdit.drug_spec = row.drug_spec
@@ -2058,10 +2060,10 @@
         this.templateFormEdit.id = row.id
         this.templateFormEdit.parent_id = row.parent_id
         this.templateEditFormVisible = true
-        if(row.parent_id > 0){
+        if (row.parent_id > 0) {
           this.editDialogTitle = "编辑子药"
           this.edit_advice_name = "子药名称"
-        }else{
+        } else {
 
           this.editDialogTitle = "编辑医嘱"
           this.edit_advice_name = "医嘱内容"
@@ -2129,7 +2131,7 @@
           });
         }).catch(() => {
         });
-      },openDeleteChild(index, row){
+      }, openDeleteChild(index, row) {
         this.hoverOrderArr = []
 
         this.$confirm('删除子药', '是否删除该子药', {
@@ -2259,17 +2261,39 @@
       }, handleUpdateAdviceTemplate(row, index) {
         this.current_template_id = row.template_id
         this.current_template_name = row.name
+        this.form.name = row.name
         this.templateTableTwoVisible = true;
         this.adviceTableDataTwo = []
-        for (let i = 0; i < this.adviceTemplates.length; i++){
-          if(this.adviceTemplates[i].template_id == row.template_id){
+        for (let i = 0; i < this.adviceTemplates.length; i++) {
+          if (this.adviceTemplates[i].template_id == row.template_id) {
             this.adviceTableDataTwo.push(this.adviceTemplates[i]);
           }
         }
+      }, modifyTemplateName() {
+        let params = {
+          template_name: this.form.name,
+          template_id: this.current_template_id,
+        }
+        updateTemplateName(params).then(response => {
+          if (response.data.state == 0) {
+            this.$message.error(response.data.msg);
+            return false;
+          } else {
+            this.$notify({
+              title: "成功",
+              message: "修改成功",
+              type: "success",
+              duration: 2000
+            });
+            this.templateTableTwoVisible = false;
 
-
-
-
+            for (let i = 0; i < this.adviceTemplates.length; i++) {
+                if(this.adviceTemplates[i].template_id == this.current_template_id){
+                  this.adviceTemplates[i].name = response.data.data.template_name
+                }
+            }
+          }
+        });
       }
     }
   };

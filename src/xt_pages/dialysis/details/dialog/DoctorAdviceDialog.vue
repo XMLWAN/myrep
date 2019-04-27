@@ -1319,7 +1319,7 @@
         let tempPrescribingNumberDesc = ""
 
         if(row.single_dose){
-          tempSingleDoseDesc ="  "+row.single_dose + "" + row.single_dose_unit
+          tempSingleDoseDesc =' 单次用量 '+"  "+row.single_dose + "" + row.single_dose_unit
         }
         // if(row.drug_spec){
         //   tempDrugSpecDesc = "  "+row.drug_spec + "" + row.drug_spec_unit
@@ -1330,12 +1330,12 @@
 
         if(isChild == 1){ //不是子药
 
-          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc+ ' 单次用量 ' +tempSingleDoseDesc+" "+row.delivery_way+" "+row.execution_frequency
+          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc +tempSingleDoseDesc+" "+row.delivery_way+" "+row.execution_frequency
 
         }else{ //是子药
 
 
-          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc+' 单次用量 ' +tempSingleDoseDesc
+          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc + tempSingleDoseDesc
         }
 
 
