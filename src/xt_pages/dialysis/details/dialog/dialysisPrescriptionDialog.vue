@@ -482,12 +482,15 @@
 
       var date = this.$route.query && this.$route.query.date;
       this.record_date = uParseTime(date, '{y}-{m}-{d}');
+
+           
     },
     watch: {
       isVisibility(val) {
 
       },
       "prescription.id": function () {
+        
         if (this.prescription.id > 0) {
           for (var index in this.dialysisPrescription) {
             this.dialysisPrescription[index] = this.prescription[index];
@@ -512,6 +515,59 @@
           //   this.dialysisPrescription['anticoagulant']  = this.prescription['anticoagulant']
           //
           // }
+
+          
+          if(this.prescription['dialysis_duration_hour'] == 0){
+            this.dialysisPrescription['dialysis_duration_hour'] = ''
+          }
+          if(this.prescription['dialysis_duration_minute'] == 0){
+            this.dialysisPrescription['dialysis_duration_minute'] = ''
+          }
+          if(this.prescription['blood_flow_volume'] == 0){
+            this.dialysisPrescription['blood_flow_volume'] = ''
+          }
+          if(this.prescription['target_ultrafiltration'] == 0){
+            this.dialysisPrescription['target_ultrafiltration'] = ''
+          }
+          if(this.prescription['dialysate_temperature'] == 0){
+            this.dialysisPrescription['dialysate_temperature'] = ''
+          }
+          if(this.prescription['anticoagulant_shouji'] == 0){
+            this.dialysisPrescription['anticoagulant_shouji'] = ''
+          }
+          if(this.prescription['anticoagulant_weichi'] == 0){
+            this.dialysisPrescription['anticoagulant_weichi'] = ''
+          }
+          if(this.prescription['anticoagulant_zongliang'] == 0){
+            this.dialysisPrescription['anticoagulant_zongliang'] = ''
+          }
+          if(this.prescription['anticoagulant_gaijiliang'] == 0){
+            this.dialysisPrescription['anticoagulant_gaijiliang'] = ''
+          }
+          if(this.prescription['kalium'] == 0){
+            this.dialysisPrescription['kalium'] = ''
+          }
+          if(this.prescription['sodium'] == 0){
+            this.dialysisPrescription['sodium'] = ''
+          }
+          if(this.prescription['calcium'] == 0){
+            this.dialysisPrescription['calcium'] = ''
+          }
+          if(this.prescription['bicarbonate'] == 0){
+            this.dialysisPrescription['bicarbonate'] = ''
+          }
+          if(this.prescription['glucose'] == 0){
+            this.dialysisPrescription['glucose'] = ''
+          }
+          if(this.prescription['dialysate_flow'] == 0){
+            this.dialysisPrescription['dialysate_flow'] = ''
+          }
+          if(this.prescription['conductivity'] == 0){
+            this.dialysisPrescription['conductivity'] = ''
+          }
+          if(this.prescription['replacement_total'] == 0){
+            this.dialysisPrescription['replacement_total'] = ''
+          }
 
         }
       },
@@ -539,6 +595,58 @@
             //   this.dialysisPrescription['anticoagulant']  = this.prescription['anticoagulant']+''
             //
             // }
+            
+            if(this.prescription['dialysis_duration_hour'] == 0){
+              this.dialysisPrescription['dialysis_duration_hour'] = ''
+            }
+            if(this.prescription['dialysis_duration_minute'] == 0){
+              this.dialysisPrescription['dialysis_duration_minute'] = ''
+            }
+            if(this.prescription['blood_flow_volume'] == 0){
+              this.dialysisPrescription['blood_flow_volume'] = ''
+            }
+            if(this.prescription['target_ultrafiltration'] == 0){
+              this.dialysisPrescription['target_ultrafiltration'] = ''
+            }
+            if(this.prescription['dialysate_temperature'] == 0){
+              this.dialysisPrescription['dialysate_temperature'] = ''
+            }
+            if(this.prescription['anticoagulant_shouji'] == 0){
+              this.dialysisPrescription['anticoagulant_shouji'] = ''
+            }
+            if(this.prescription['anticoagulant_weichi'] == 0){
+              this.dialysisPrescription['anticoagulant_weichi'] = ''
+            }
+            if(this.prescription['anticoagulant_zongliang'] == 0){
+              this.dialysisPrescription['anticoagulant_zongliang'] = ''
+            }
+            if(this.prescription['anticoagulant_gaijiliang'] == 0){
+              this.dialysisPrescription['anticoagulant_gaijiliang'] = ''
+            }
+            if(this.prescription['kalium'] == 0){
+              this.dialysisPrescription['kalium'] = ''
+            }
+            if(this.prescription['sodium'] == 0){
+              this.dialysisPrescription['sodium'] = ''
+            }
+            if(this.prescription['calcium'] == 0){
+              this.dialysisPrescription['calcium'] = ''
+            }
+            if(this.prescription['bicarbonate'] == 0){
+              this.dialysisPrescription['bicarbonate'] = ''
+            }
+            if(this.prescription['glucose'] == 0){
+              this.dialysisPrescription['glucose'] = ''
+            }
+            if(this.prescription['dialysate_flow'] == 0){
+              this.dialysisPrescription['dialysate_flow'] = ''
+            }
+            if(this.prescription['conductivity'] == 0){
+              this.dialysisPrescription['conductivity'] = ''
+            }
+            if(this.prescription['replacement_total'] == 0){
+              this.dialysisPrescription['replacement_total'] = ''
+            }
 
           } else if (this.solution != null && typeof this.solution.id != 'undefined' && this.solution.id) {
             for (const key in this.solution) {
@@ -556,8 +664,58 @@
             if(this.solution['anticoagulant'] == 0){
               this.dialysisPrescription['anticoagulant'] = ''
             }
-
-
+            
+            if(this.solution['dialysis_duration_hour'] == 0){
+              this.dialysisPrescription['dialysis_duration_hour'] = ''
+            }
+            if(this.solution['dialysis_duration_minute'] == 0){
+              this.dialysisPrescription['dialysis_duration_minute'] = ''
+            }
+            if(this.solution['blood_flow_volume'] == 0){
+              this.dialysisPrescription['blood_flow_volume'] = ''
+            }
+            if(this.solution['target_ultrafiltration'] == 0){
+              this.dialysisPrescription['target_ultrafiltration'] = ''
+            }
+            if(this.solution['dialysate_temperature'] == 0){
+              this.dialysisPrescription['dialysate_temperature'] = ''
+            }
+            if(this.solution['anticoagulant_shouji'] == 0){
+              this.dialysisPrescription['anticoagulant_shouji'] = ''
+            }
+            if(this.solution['anticoagulant_weichi'] == 0){
+              this.dialysisPrescription['anticoagulant_weichi'] = ''
+            }
+            if(this.solution['anticoagulant_zongliang'] == 0){
+              this.dialysisPrescription['anticoagulant_zongliang'] = ''
+            }
+            if(this.solution['anticoagulant_gaijiliang'] == 0){
+              this.dialysisPrescription['anticoagulant_gaijiliang'] = ''
+            }
+            if(this.solution['kalium'] == 0){
+              this.dialysisPrescription['kalium'] = ''
+            }
+            if(this.solution['sodium'] == 0){
+              this.dialysisPrescription['sodium'] = ''
+            }
+            if(this.solution['calcium'] == 0){
+              this.dialysisPrescription['calcium'] = ''
+            }
+            if(this.solution['bicarbonate'] == 0){
+              this.dialysisPrescription['bicarbonate'] = ''
+            }
+            if(this.solution['glucose'] == 0){
+              this.dialysisPrescription['glucose'] = ''
+            }
+            if(this.solution['dialysate_flow'] == 0){
+              this.dialysisPrescription['dialysate_flow'] = ''
+            }
+            if(this.solution['conductivity'] == 0){
+              this.dialysisPrescription['conductivity'] = ''
+            }
+            if(this.solution['replacement_total'] == 0){
+              this.dialysisPrescription['replacement_total'] = ''
+            }
 
           }
         }

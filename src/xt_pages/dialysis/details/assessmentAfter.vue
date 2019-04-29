@@ -5,18 +5,18 @@
       <ul>
         <li>
           <label>透后体重 : </label>
-          <span class="content">{{ weight_after }}</span>
-          <span class="unit">kg</span>
+          <span class="content" v-if="weight_after!='0'">{{ weight_after }}</span>
+          <span class="unit" v-if="weight_after!='0'">kg</span>
         </li>
         <li>
           <label>收缩压 : </label>
-          <span class="content">{{ systolic_blood_pressure }}</span>
-          <span class="unit">mmhg</span>
+          <span class="content" v-if="systolic_blood_pressure!='0'">{{ systolic_blood_pressure }}</span>
+          <span class="unit" v-if="systolic_blood_pressure!='0'">mmhg</span>
         </li>
         <li>
           <label>实际超滤量: </label>
-          <span class="content">{{ actual_ultrafiltration }}</span>
-          <span class="unit">ml</span>
+          <span class="content" v-if="actual_ultrafiltration!='0'">{{ actual_ultrafiltration }}</span>
+          <span class="unit" v-if="actual_ultrafiltration!='0'">ml</span>
         </li>
         <li>
           <label>疑血 : </label>
@@ -46,18 +46,18 @@
       <ul>
         <li>
           <label>体重减少 : </label>
-          <span class="content">{{ weight_loss }}</span>
-          <span class="unit">kg</span>
+          <span class="content"  v-if="weight_loss!='0'">{{ weight_loss }}</span>
+          <span class="unit" v-if="weight_loss!='0'">kg</span>
         </li>
         <li>
           <label>舒张压 : </label>
-          <span class="content">{{ diastolic_blood_pressure }}</span>
-          <span class="unit">mmhg</span>
+          <span class="content" v-if="diastolic_blood_pressure!='0'">{{ diastolic_blood_pressure }}</span>
+          <span class="unit" v-if="diastolic_blood_pressure!='0'">mmhg</span>
         </li>
         <li>
           <label>实际置换量 : </label>
-          <span class="content">{{ actual_displacement }}</span>
-          <span class="unit">ml</span>
+          <span class="content" v-if="actual_displacement!='0'">{{ actual_displacement }}</span>
+          <span class="unit" v-if="actual_displacement!='0'">ml</span>
         </li>
         <li>
           <label>透后症状 : </label>
@@ -84,21 +84,22 @@
       <ul>
         <li>
           <label>体温 : </label>
-          <span class="content">{{ temperature }}</span>
-          <span class="unit">℃</span>
+          <span class="content" v-if="temperature!='0'">{{ temperature }}</span>
+          <span class="unit" v-if="temperature!='0'">℃</span>
         </li>
         <li>
           <label>脉率 : </label>
-          <span class="content">{{ pulse_frequency }}</span>
-          <span class="unit">次/分</span>
+          <span class="content" v-if="pulse_frequency!='0'">{{ pulse_frequency }}</span>
+          <span class="unit" v-if="pulse_frequency!='0'">次/分</span>
         </li>
         <li>
           <label>实际治疗时长 : </label>
-          <span class="content">{{ actual_treatment_hour }}时{{ actual_treatment_minute }}分</span>
+          <span class="content" v-if="actual_treatment_hour!='0'">{{ actual_treatment_hour }}时</span>
+          <span class="content" v-if="actual_treatment_minute!='0'">{{ actual_treatment_minute }}分</span>
         </li>
         <li>
           <label>透析中入量: </label>
-          <span class="content">{{ dialysis_intakes_feed }}</span>
+          <span class="content" v-if="dialysis_intakes_feed!='0'">{{ dialysis_intakes_feed }}</span>
         </li>
         <li>
           <label>血管通路操作: </label>

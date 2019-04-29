@@ -17,28 +17,58 @@
           </el-table-column>
           <el-table-column align="center" label="血压(mmhg)" width="110">
             <template slot-scope="scope">
-              {{scope.row.systolic_blood_pressure}}/{{scope.row.diastolic_blood_pressure}}
+              {{scope.row.systolic_blood_pressure?scope.row.systolic_blood_pressure:''}}/{{scope.row.diastolic_blood_pressure?scope.row.diastolic_blood_pressure:''}}
             </template>
           </el-table-column>
           <el-table-column prop="pulse_frequency" align="center" width="100" label="心率(次/分)">
+            <template slot-scope="scope">
+              {{scope.row.pulse_frequency?scope.row.pulse_frequency:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="breathing_rate" align="center" label="呼吸(次/分)" width="100">
+            <template slot-scope="scope">
+              {{scope.row.breathing_rate?scope.row.breathing_rate:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="blood_flow_volume" align="center" label="血流量(ml/min)" width="120">
+            <template slot-scope="scope">
+              {{scope.row.blood_flow_volume?scope.row.blood_flow_volume:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="venous_pressure" align="center" label="静脉压(mmhg)" width="120">
+            <template slot-scope="scope">
+              {{scope.row.venous_pressure?scope.row.venous_pressure:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="transmembrane_pressure" align="center" label="跨膜压(mmhg)" width="120">
+            <template slot-scope="scope">
+              {{scope.row.transmembrane_pressure?scope.row.transmembrane_pressure:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="ultrafiltration_volume" align="center" label="超滤量(L)" width="110">
+            <template slot-scope="scope">
+              {{scope.row.ultrafiltration_volume?scope.row.ultrafiltration_volume:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="sodium_concentration" align="center" label="钠浓度(mmol/L)" width="126">
+            <template slot-scope="scope">
+              {{scope.row.sodium_concentration?scope.row.sodium_concentration:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="dialysate_temperature" align="center" label="透析液温度(℃)" width="120">
+            <template slot-scope="scope">
+              {{scope.row.dialysate_temperature?scope.row.dialysate_temperature:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="replacement_rate" align="center" label="置换率(L/h)" width="120">
+            <template slot-scope="scope">
+              {{scope.row.replacement_rate?scope.row.replacement_rate:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="displacement_quantity" align="center" label="置换量(L)" width="100">
+            <template slot-scope="scope">
+              {{scope.row.displacement_quantity?scope.row.displacement_quantity:''}}
+            </template>
           </el-table-column>
           <el-table-column prop="symptom" align="center" label="病情变化" width="130">
           </el-table-column>
@@ -368,20 +398,20 @@
             // this.form.operate_date = monitor.operate_date
             // this.form.monitoring_time = monitor.monitoring_time
             this.form.operate_time = monitor.operate_time * 1000
-          this.form.systolic_bp = monitor.systolic_blood_pressure
-          this.form.diastolic_bp = monitor.diastolic_blood_pressure
-          this.form.pulse_frequency = monitor.pulse_frequency
-          this.form.breathing_rated = monitor.breathing_rate
-          this.form.blood_flow_volume = monitor.blood_flow_volume
-          this.form.venous_pressure = monitor.venous_pressure
-          this.form.transmembrane_pressure = monitor.transmembrane_pressure
-          this.form.ultrafiltration_volume = monitor.ultrafiltration_volume
-          this.form.ultrafiltration_rate = monitor.ultrafiltration_rate
-          this.form.arterial_pressure = monitor.arterial_pressure
-          this.form.sodium_concentration = monitor.sodium_concentration
-          this.form.dialysate_temperature = monitor.dialysate_temperature
-          this.form.replacement_rate = monitor.replacement_rate
-          this.form.displacement_quantity = monitor.displacement_quantity
+          this.form.systolic_bp = monitor.systolic_blood_pressure?monitor.systolic_blood_pressure:''
+          this.form.diastolic_bp = monitor.diastolic_blood_pressure?monitor.diastolic_blood_pressure:''
+          this.form.pulse_frequency = monitor.pulse_frequency?monitor.pulse_frequency:''
+          this.form.breathing_rated = monitor.breathing_rate?monitor.breathing_rate:''
+          this.form.blood_flow_volume = monitor.blood_flow_volume?monitor.blood_flow_volume:''
+          this.form.venous_pressure = monitor.venous_pressure?monitor.venous_pressure:''
+          this.form.transmembrane_pressure = monitor.transmembrane_pressure?monitor.transmembrane_pressure:''
+          this.form.ultrafiltration_volume = monitor.transmembrane_pressure?monitor.transmembrane_pressure:''
+          this.form.ultrafiltration_rate = monitor.ultrafiltration_rate?monitor.ultrafiltration_rate:''
+          this.form.arterial_pressure = monitor.arterial_pressure?monitor.arterial_pressure:''
+          this.form.sodium_concentration = monitor.sodium_concentration?monitor.sodium_concentration:''
+          this.form.dialysate_temperature = monitor.dialysate_temperature?monitor.dialysate_temperature:''
+          this.form.replacement_rate = monitor.replacement_rate?monitor.replacement_rate:''
+          this.form.displacement_quantity = monitor.displacement_quantity?monitor.displacement_quantity:''
           this.form.ktv = monitor.ktv
           this.form.symptom = monitor.symptom
           this.form.dispose = monitor.dispose

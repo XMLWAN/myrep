@@ -1168,6 +1168,7 @@
         this.drugdicFormVisible = true;
         this.dialogTitle = "新增医嘱模版";
         this.isEdit = false;
+        this.form.name="";
       },
       cancelHandle(formName) {
         this.table_current_index = -1
