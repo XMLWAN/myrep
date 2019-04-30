@@ -1,0 +1,47 @@
+html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input{-webkit-appearance:none; resize: none;}
+    button{
+        outline: none;
+        border:none;
+    }    
+    img {max-width: 100%;height: auto;width:auto\9; /* ie8 */border: none;}
+    /* 初始化开始*/
+    *{margin:0; padding:0;box-sizing:border-box;}
+    body{background-color:#fff;font-family:"Microsoft YaHei";}
+    html,body{
+      height: 100%;
+    }
+    em,i,b{font-weight: normal;font-style: normal;}
+    a{text-decoration:none;}
+    a:hover{ text-decoration:none;}
+
+    li{list-style:none;}
+    ul,li{padding: 0;margin: 0;}
+    h1, h2, h3, h4, h5, h6{ font-weight: normal;}
+    .clearfix:after{content:""; color:#34495e; display:block; visibility:hidden; height:0; clear:both;}
+    .clearfix{zoom:1;}
+    .fl{float:left;}
+    .fr{float:right;}
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color:$font-color;}
+    input:-moz-placeholder, textarea:-moz-placeholder {color: $font-color;}
+    input::-moz-placeholder, textarea::-moz-placeholder {color: $font-color;}
+    input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: $font-color;}
+    /* 初始化结束 */
+
+    ::-webkit-scrollbar {
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background-color: #e5e5e5;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      
+      ::-webkit-scrollbar-corner {
+        background-color: black;
+      }
