@@ -17,9 +17,15 @@ module.exports = {
     // can be overwritten by process.env.HOST
     // if you want dev by ip, please set host: '0.0.0.0'
 
+<<<<<<< HEAD
     host: 'xt.test.sgjyun.com',
     // host: 'xt.kuyicloud.com',
     // host: 'localhost',
+=======
+  //  host: 'xt.test.sgjyun.com',
+    // host: 'xt.kuyicloud.com',
+    host: 'localhost',
+>>>>>>> 6e94af4e074e2cc83d5157bc0976574072610f7e
     port: 9528, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,

@@ -280,7 +280,11 @@
           <el-form-item label="治疗状态(转归) : " class="is-required" prop="lapseto" >
             <el-radio-group v-model="form.lapseto">
               <!-- <el-radio :disabled="isEdit" v-for="item in lapsetoOptions" :key="item.value" :label="item.value" :value="item.value" >{{item.label}}</el-radio> -->
+<<<<<<< HEAD
               <el-radio :disabled="isEdit" v-for="item in lapsetoOptions" :key="item.value" :label="item.value" :value="item.value" >{{item.label}}</el-radio>
+=======
+              <el-radio v-for="item in lapsetoOptions" :key="item.value" :label="item.value" :value="item.value" >{{item.label}}</el-radio>
+>>>>>>> 6e94af4e074e2cc83d5157bc0976574072610f7e
             </el-radio-group>
           </el-form-item>
         </el-col>

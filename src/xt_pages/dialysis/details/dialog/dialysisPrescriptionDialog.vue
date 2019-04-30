@@ -482,15 +482,12 @@
 
       var date = this.$route.query && this.$route.query.date;
       this.record_date = uParseTime(date, '{y}-{m}-{d}');
-
-           
     },
     watch: {
       isVisibility(val) {
 
       },
       "prescription.id": function () {
-        
         if (this.prescription.id > 0) {
           for (var index in this.dialysisPrescription) {
             this.dialysisPrescription[index] = this.prescription[index];

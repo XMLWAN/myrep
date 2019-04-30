@@ -1330,12 +1330,12 @@
 
         if(isChild == 1){ //不是子药
 
-          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc +tempSingleDoseDesc+" "+row.delivery_way+" "+row.execution_frequency
+          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc+ ' 单次用量 ' +tempSingleDoseDesc+" "+row.delivery_way+" "+row.execution_frequency
 
         }else{ //是子药
 
 
-          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc + tempSingleDoseDesc
+          return row.advice_name + row.advice_desc+tempDrugSpecDesc+tempPrescribingNumberDesc+' 单次用量 ' +tempSingleDoseDesc
         }
 
 
