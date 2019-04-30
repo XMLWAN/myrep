@@ -590,7 +590,7 @@
                   </td>
                   <td width="10">h</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_minute?fterdialysis.actual_treatment_minute:''}}</div>
+                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_minute?afterdialysis.actual_treatment_minute:''}}</div>
                   </td>
                   <td width="35">min</td>
                   <td></td>
