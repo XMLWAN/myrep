@@ -5,18 +5,18 @@
       <ul>
         <li>
           <label>透前体重 : </label>
-          <span class="content">{{ weight_before }}</span>
-          <span class="unit">kg</span>
+          <span class="content" v-if="weight_before!='0'">{{ weight_before }}</span>
+          <span class="unit" v-if="weight_before!='0'">kg</span>
         </li>
         <li>
           <label>收缩压 : </label>
-          <span class="content">{{ systolic_blood_pressure }}</span>
-          <span class="unit">mmhg</span>
+          <span class="content" v-if="systolic_blood_pressure!='0'">{{ systolic_blood_pressure }}</span>
+          <span class="unit" v-if="systolic_blood_pressure!='0'">mmhg</span>
         </li>
         <li>
           <label>前次透析后: </label>
-          <span class="content">{{ last_post_dialysis }}</span>
-          <span class="unit"></span>
+          <span class="content" v-if="last_post_dialysis!='0'">{{ last_post_dialysis }}</span>
+          <span class="unit" v-if="last_post_dialysis!='0'"></span>
         </li>
         <li>
           <label>导管 : </label>
@@ -27,18 +27,18 @@
       <ul>
         <li>
           <label>干体重 : </label>
-          <span class="content">{{ dry_weight }}</span>
-          <span class="unit">kg</span>
+          <span class="content" v-if="dry_weight!='0'">{{ dry_weight }}</span>
+          <span class="unit" v-if="dry_weight!='0'">kg</span>
         </li>
         <li>
           <label>舒张压 : </label>
-          <span class="content">{{ diastolic_blood_pressure }}</span>
-          <span class="unit">mmhg</span>
+          <span class="content" v-if="diastolic_blood_pressure!='0'">{{ diastolic_blood_pressure }}</span>
+          <span class="unit" v-if="diastolic_blood_pressure!='0'">mmhg</span>
         </li>
         <li>
           <label>透析期间 : </label>
-          <span class="content">{{ dialysis_interphase }}</span>
-          <span class="unit"></span>
+          <span class="content" v-if="dialysis_interphase!='0'">{{ dialysis_interphase }}</span>
+          <span class="unit" v-if="dialysis_interphase!='0'"></span>
         </li>
         <li>
           <label>合并症: </label>
@@ -49,13 +49,13 @@
       <ul>
         <li>
           <label>体温 : </label>
-          <span class="content">{{ temperature }}</span>
-          <span class="unit">℃</span>
+          <span class="content" v-if="temperature!='0'">{{ temperature }}</span>
+          <span class="unit" v-if="temperature!='0'">℃</span>
         </li>
         <li>
           <label>心率 : </label>
-          <span class="content">{{ pulse_frequency }}</span>
-          <span class="unit">次/分</span>
+          <span class="content" v-if="pulse_frequency!='0'">{{ pulse_frequency }}</span>
+          <span class="unit" v-if="pulse_frequency!='0'">次/分</span>
         </li>
         <li>
           <label>透析前症状 : </label>

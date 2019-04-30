@@ -489,21 +489,38 @@
             this.assessmentBeforeDislysis['catheter_bend'] = ''
           }else{
             this.assessmentBeforeDislysis['catheter_bend']  = this.predialysis_evaluation['catheter_bend']+''
-
-
           }
           if(this.predialysis_evaluation['is_hemorrhage'] == 0){
             this.assessmentBeforeDislysis['is_hemorrhage'] = ''
           }else{
-
             this.assessmentBeforeDislysis['is_hemorrhage']  = this.predialysis_evaluation['is_hemorrhage']+''
-
           }
           if(this.predialysis_evaluation['blood_access_part_id'] == 0){
             this.assessmentBeforeDislysis['blood_access_part_id'] = ''
           }
           if(this.predialysis_evaluation['blood_access_part_opera_id'] == 0){
             this.assessmentBeforeDislysis['blood_access_part_opera_id'] = ''
+          }
+          if(this.predialysis_evaluation['weight_before'] == 0){
+            this.assessmentBeforeDislysis['weight_before'] = ''
+          }
+          if(this.predialysis_evaluation['dry_weight'] == 0){
+            this.assessmentBeforeDislysis['dry_weight'] = ''
+          }
+          if(this.predialysis_evaluation['temperature'] == 0){
+            this.assessmentBeforeDislysis['temperature'] = ''
+          }
+          if(this.predialysis_evaluation['systolic_blood_pressure'] == 0){
+            this.assessmentBeforeDislysis['systolic_blood_pressure'] = ''
+          }
+          if(this.predialysis_evaluation['diastolic_blood_pressure'] == 0){
+            this.assessmentBeforeDislysis['diastolic_blood_pressure'] = ''
+          }
+          if(this.predialysis_evaluation['pulse_frequency'] == 0){
+            this.assessmentBeforeDislysis['pulse_frequency'] = ''
+          }
+          if(this.predialysis_evaluation['pulse_frequency'] == 0){
+            this.assessmentBeforeDislysis['pulse_frequency'] = ''
           }
         }
       },

@@ -336,7 +336,15 @@ export const xt_constantRouterMap = [
   //     // { path: 'advice', component: () => import('@/xt_pages/dialysis/doctorAdvice'), name: 'advice', meta: { title: 'advice' }},
   //     // { path: 'prepare', component: () => import('@/xt_pages/dialysis/dialysisPrepare'), name: 'prepare', meta: { title: 'prepare' }},
   //     { path: '/dialysis/watch', component: () => import('@/xt_pages/dialysis/bloodPresssWatch'), name: 'watch', meta: { title: 'watch' }},
-  //     { path: '/dialysis/details', component: () => import('@/xt_pages/dialysis/details'), name: 'details', meta: { title: 'details' }}
+  //     { path: '/dialysis/details', component: () => import('@/xt_pages/dialysis/details'), name: 'details', meta: { title: 'details' }},
+  //     {
+  //       path: '/dialysis/print/batch',
+  //       component: () => import('@/xt_pages/dialysis/batch_print/batch_print_order'),
+  //       hidden: true,
+  //       is_menu: false,
+  //       name: 'dialysis_batch_print',
+  //       meta: { title: 'dialysis_batch_print', noCache: true }
+  //     },
   //   ]
   // },
   // {
@@ -688,7 +696,15 @@ export const xt_asyncRouterMap = [
       // { path: 'advice', component: () => import('@/xt_pages/dialysis/doctorAdvice'), name: 'advice', meta: { title: 'advice' }},
       // { path: 'prepare', component: () => import('@/xt_pages/dialysis/dialysisPrepare'), name: 'prepare', meta: { title: 'prepare' }},
       { path: '/dialysis/watch', component: () => import('@/xt_pages/dialysis/bloodPresssWatch'), name: 'watch', meta: { title: 'watch' }},
-      { path: '/dialysis/details', component: () => import('@/xt_pages/dialysis/details'), name: 'details', meta: { title: 'details' }, is_menu: false,}
+      { path: '/dialysis/details', component: () => import('@/xt_pages/dialysis/details'), name: 'details', meta: { title: 'details' }, is_menu: false,},
+      {
+        path: '/dialysis/print/batch',
+        component: () => import('@/xt_pages/dialysis/batch_print/batch_print_order'),
+        hidden: true,
+        is_menu: false,
+        name: 'dialysis_batch_print',
+        meta: { title: 'dialysis_batch_print', noCache: true }
+      },
     ]
   },
   {

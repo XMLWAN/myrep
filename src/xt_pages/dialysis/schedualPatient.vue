@@ -155,7 +155,7 @@
           for (let s_i = 0; s_i < originSchedules.length; s_i++) {
             const schedule = originSchedules[s_i];
             if (zone_selected != 0) {
-              if (zone_selected == schedule.device_zone.id) {
+              if (zone_selected == schedule.device_number.zone.id) {
                 if (timetype_selected == 0 || schedule.schedule_type == timetype_selected) {
                   filtedSchedules.push(schedule)
                 }
@@ -255,7 +255,7 @@
         }
         for (let index = 0; index < schedules.length; index++) {
           const schedule = schedules[index]
-          scheduleMap[schedule.device_zone.id].push(schedule)
+          scheduleMap[schedule.device_number.zone.id].push(schedule)
         }
         var zone_schedules = []
         for (let index = 0; index < zone_options.length; index++) {

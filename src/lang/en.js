@@ -110,6 +110,7 @@ export default {
     RescueRecord: "Rescue Record",
     special_permission_manage: "Special Permission Manage",
     schedule_print: "Print Schudule",
+    dialysis_batch_print: "Batch Print Order",
   },
   navbar: {
     logOut: 'Log Out',

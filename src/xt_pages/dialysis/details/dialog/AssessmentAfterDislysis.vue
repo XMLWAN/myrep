@@ -318,13 +318,38 @@ export default {
           }
           if(this.assessment_after_dislysis['internal_fistula_tremor_ac'] == 0){
             this.form['internal_fistula_tremor_ac'] = ''
-
           }
           if(this.assessment_after_dislysis['patient_gose'] == 0){
             this.form['patient_gose'] = ''
-
-
           }
+          if(this.assessment_after_dislysis['weight_after'] == 0){
+            this.form['weight_after'] = ''
+          }
+          if(this.assessment_after_dislysis['weight_loss'] == 0){
+            this.form['weight_loss'] = ''
+          }
+          if(this.assessment_after_dislysis['temperature'] == 0){
+            this.form['temperature'] = ''
+          }
+          if(this.assessment_after_dislysis['systolic_blood_pressure'] == 0){
+            this.form['systolic_blood_pressure'] = ''
+          }
+          if(this.assessment_after_dislysis['diastolic_blood_pressure'] == 0){
+            this.form['diastolic_blood_pressure'] = ''
+          }
+          if(this.assessment_after_dislysis['pulse_frequency'] == 0){
+            this.form['pulse_frequency'] = ''
+          }
+          if(this.assessment_after_dislysis['actual_ultrafiltration'] == 0){
+            this.form['actual_ultrafiltration'] = ''
+          }
+          if(this.assessment_after_dislysis['actual_displacement'] == 0){
+            this.form['actual_displacement'] = ''
+          }
+          if(this.assessment_after_dislysis['dialysis_intakes'] == 0){
+            this.form['dialysis_intakes'] = ''
+          }
+          this.actualTreatmentHourShow = new Date(2018, 1, 1, this.assessment_after_dislysis['actual_treatment_hour'], this.assessment_after_dislysis['actual_treatment_minute'])
 
         }
     },

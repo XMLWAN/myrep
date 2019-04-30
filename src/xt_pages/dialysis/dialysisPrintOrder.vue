@@ -107,7 +107,7 @@
                   <td></td>
                   <td width="50">体温:</td>
                   <td width="100">
-                    <div class="under-line">&nbsp;{{predialysis.temperature}}</div>
+                    <div class="under-line">&nbsp;{{predialysis.temperature?predialysis.temperature:''}}</div>
                   </td>
                   <td width="35">℃</td>
                 </tr>
@@ -304,35 +304,35 @@
                 <tr>
                   <td width="70">透析时间:</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{prescription.dialysis_duration_hour}}</div>
+                    <div class="under-line">&nbsp;{{prescription.dialysis_duration_hour?prescription.dialysis_duration_hour:''}}</div>
                   </td>
                   <td width="10">h</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{prescription.dialysis_duration_minute}}</div>
+                    <div class="under-line">&nbsp;{{prescription.dialysis_duration_minute?prescription.dialysis_duration_minute:''}}</div>
                   </td>
                   <td width="35">min</td>
                   <td></td>
                   <td width="55">血流量:</td>
                   <td width="60">
-                    <div class="under-line">&nbsp;{{prescription.blood_flow_volume}}</div>
+                    <div class="under-line">&nbsp;{{prescription.blood_flow_volume?prescription.blood_flow_volume:''}}</div>
                   </td>
                   <td width="60">ml/min</td>
                   <td></td>
                   <td width="40">体重:</td>
                   <td width="35">透前</td>
                   <td width="50">
-                    <div class="under-line">&nbsp;{{predialysis.weight_before}}</div>
+                    <div class="under-line">&nbsp;{{predialysis.weight_before?predialysis.weight_before:''}}</div>
                   </td>
                   <td width="20">Kg</td>
                   <td width="45">干体重</td>
                   <td width="50">
-                    <div class="under-line">&nbsp;{{predialysis.dry_weight}}</div>
+                    <div class="under-line">&nbsp;{{predialysis.dry_weight?predialysis.dry_weight:''}}</div>
                   </td>
                   <td width="20">Kg</td>
                   <td></td>
                   <td width="85">目标超滤量:</td>
                   <td width="70">
-                    <div class="under-line">&nbsp;{{prescription.target_ultrafiltration}}</div>
+                    <div class="under-line">&nbsp;{{prescription.target_ultrafiltration?prescription.target_ultrafiltration:''}}</div>
                   </td>
                   <td width="20">ml</td>
                 </tr>
@@ -452,7 +452,7 @@
                 <tr>
                   <td width="55">置换量:</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{prescription.replacement_total}}</div>
+                    <div class="under-line">&nbsp;{{prescription.replacement_total?prescription.replacement_total:''}}</div>
                   </td>
                   <td width="10">L</td>
                   <td width="10"></td>
@@ -557,14 +557,14 @@
               </template>     -->
               {{getTime(monitor.operate_time,'{h}:{i}')}}
             </td>
-            <td>&nbsp;{{monitor.systolic_blood_pressure}} / {{monitor.diastolic_blood_pressure}}</td>
-            <td>&nbsp;{{monitor.pulse_frequency}}</td>
-            <td>&nbsp;{{monitor.breathing_rate}}</td>
-            <td>&nbsp;{{monitor.blood_flow_volume}}</td>
-            <td>&nbsp;{{monitor.ultrafiltration_volume}}</td>
-            <td>&nbsp;{{monitor.displacement_quantity}}</td>
-            <td>&nbsp;{{monitor.venous_pressure}}</td>
-            <td>&nbsp;{{monitor.transmembrane_pressure}}</td>
+            <td>&nbsp;{{monitor.systolic_blood_pressure?monitor.systolic_blood_pressure:''}} / {{monitor.diastolic_blood_pressure?monitor.diastolic_blood_pressure:''}}</td>
+            <td>&nbsp;{{monitor.pulse_frequency?monitor.pulse_frequency:''}}</td>
+            <td>&nbsp;{{monitor.breathing_rate?monitor.breathing_rate:''}}</td>
+            <td>&nbsp;{{monitor.blood_flow_volume?monitor.blood_flow_volume:''}}</td>
+            <td>&nbsp;{{monitor.ultrafiltration_volume?monitor.ultrafiltration_volume:''}}</td>
+            <td>&nbsp;{{monitor.displacement_quantity?monitor.displacement_quantity:''}}</td>
+            <td>&nbsp;{{monitor.venous_pressure?monitor.venous_pressure:''}}</td>
+            <td>&nbsp;{{monitor.transmembrane_pressure?monitor.transmembrane_pressure:''}}</td>
             <!-- <td>&nbsp;{{monitor.sodium_concentration}}</td>
             <td>&nbsp;{{monitor.dialysate_temperature}}</td>
             <td>&nbsp;{{monitor.replacement_rate}}</td> -->
@@ -586,23 +586,23 @@
                 <tr>
                   <td width="90">实际治疗时间</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_hour}}</div>
+                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_hour?afterdialysis.actual_treatment_hour:''}}</div>
                   </td>
                   <td width="10">h</td>
                   <td width="40">
-                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_minute}}</div>
+                    <div class="under-line">&nbsp;{{afterdialysis.actual_treatment_minute?fterdialysis.actual_treatment_minute:''}}</div>
                   </td>
                   <td width="35">min</td>
                   <td></td>
                   <td width="75">实际超滤量</td>
                   <td width="70">
-                    <div class="under-line">&nbsp;{{afterdialysis.actual_ultrafiltration}}</div>
+                    <div class="under-line">&nbsp;{{afterdialysis.actual_ultrafiltration?afterdialysis.actual_ultrafiltration:''}}</div>
                   </td>
                   <td width="20">ml</td>
                   <td></td>
                   <td width="60">透后体重</td>
                   <td width="50">
-                    <div class="under-line">&nbsp;{{afterdialysis.weight_after}}</div>
+                    <div class="under-line">&nbsp;{{afterdialysis.weight_after?afterdialysis.weight_after:''}}</div>
                   </td>
                   <td width="20">Kg</td>
                   <td></td>
@@ -827,7 +827,7 @@
               <span>{{advice[0].advice_desc}}</span>
               <!-- <span v-if="advice[0].drug_spec">{{advice[0].drug_spec}}{{advice[0].drug_spec_unit}}</span> -->
               <span v-if="advice[0].prescribing_number">* {{advice[0].prescribing_number}}{{advice[0].prescribing_number_unit}}</span>
-              <span v-if="advice[0].single_dose">单次用量 {{advice[0].single_dose}}{{advice[0].single_dose_unit}}</span>
+              <span v-if="advice[0].single_dose != 0">单次用量 {{advice[0].single_dose}}{{advice[0].single_dose_unit}}</span>
               <span>{{advice[0].delivery_way}}</span>
               <span>{{advice[0].execution_frequency}}</span>
               <div v-for="(child, childindex) in advice[0].children" :key="childindex" class="advice-children">
@@ -838,7 +838,7 @@
                   <span v-if="child.drug_spec">{{child.drug_spec}}{{child.drug_spec_unit}}</span>
                   <span
                     v-if="child.prescribing_number">* {{child.prescribing_number}}{{child.prescribing_number_unit}}</span>
-                  <span v-if="child.single_dose">单次用量 {{child.single_dose}}{{child.single_dose_unit}}</span>
+                  <span v-if="child.single_dose != 0">单次用量 {{child.single_dose}}{{child.single_dose_unit}}</span>
                 </div>
               </div>
 
@@ -892,7 +892,7 @@
               <span>{{advice[1].advice_desc}}</span>
               <!-- <span v-if="advice[1].drug_spec">{{advice[1].drug_spec}}{{advice[1].drug_spec_unit}}</span> -->
               <span v-if="advice[1].prescribing_number">* {{advice[1].prescribing_number}}{{advice[1].prescribing_number_unit}}</span>
-              <span v-if="advice[1].single_dose">单次用量 {{advice[1].single_dose}}{{advice[1].single_dose_unit}}</span>
+              <span v-if="advice[1].single_dose != 0">单次用量 {{advice[1].single_dose}}{{advice[1].single_dose_unit}}</span>
               <span>{{advice[1].delivery_way}}</span>
               <span>{{advice[1].execution_frequency}}</span>
 
@@ -904,7 +904,7 @@
                   <span v-if="child.drug_spec">{{child.drug_spec}}{{child.drug_spec_unit}}</span>
                   <span
                     v-if="child.prescribing_number">* {{child.prescribing_number}}{{child.prescribing_number_unit}}</span>
-                  <span v-if="child.single_dose">单次用量 {{child.single_dose}}{{child.single_dose_unit}}</span>
+                  <span v-if="child.single_dose != 0">单次用量 {{child.single_dose}}{{child.single_dose_unit}}</span>
                 </div>
               </div>
             </td>

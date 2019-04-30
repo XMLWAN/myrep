@@ -12,6 +12,7 @@ import global_config from './modules/globalConfig'
 
 import getters from './getters'
 import data from './modules/data'
+import temp_params from './modules/temp_params'
 
 Vue.use(Vuex)
 
@@ -26,7 +27,8 @@ const store = new Vuex.Store({
     data,
     xt_permission,
     xt_role_temps,
-    global_config
+    global_config,
+    temp_params,
   },
   getters
 })

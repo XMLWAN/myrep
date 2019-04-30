@@ -135,6 +135,7 @@ export default {
     RescueRecord: "抢救记录",
     special_permission_manage: "特殊权限管理",
     schedule_print: "排班打印",
+    dialysis_batch_print: "批量打印",
   },
   navbar: {
     logOut: '退出登录',

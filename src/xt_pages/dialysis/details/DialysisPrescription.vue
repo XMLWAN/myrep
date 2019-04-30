@@ -13,40 +13,42 @@
         </li> -->
         <li>
           <label>置换量 : </label>
-          <span class="content">{{ replacement_total }}</span>
-          <span class="unit">L</span>
+          <span class="content" v-if="replacement_total!='0'">{{replacement_total}}</span>
+          <span class="unit" v-if="replacement_total!='0'">L</span>
         </li>
         <li>
           <label>首剂 : </label>
-          <span class="content">{{ anticoagulant_shouji }}</span>
-          <span class="unit">mg</span>
+          <span class="content" v-if="anticoagulant_shouji!='0'">{{ anticoagulant_shouji }}</span>
+          <span class="unit" v-if="anticoagulant_shouji!='0'">mg</span>
         </li>
         <li>
           <label>钾 : </label>
-          <span class="content">{{ kalium }}</span>
-          <span class="unit">mmol/L</span>
+          <span class="content" v-if="kalium!='0'">{{ kalium }}</span>
+          <span class="unit" v-if="kalium!='0'">mmol/L</span>
         </li>
         <li>
           <label>碳酸氢盐 : </label>
-          <span class="content">{{ bicarbonate }}</span>
-          <span class="unit">mmol/l</span>
+          <span class="content" v-if="bicarbonate!='0'">{{ bicarbonate }}</span>
+          <span class="unit" v-if="bicarbonate!='0'">mmol/l</span>
         </li>
         <li>
           <label>透析液流量 : </label>
-          <span class="content">{{ dialysate_flow }}</span>
-          <span class="unit">ml/min</span>
+          <span class="content" v-if="dialysate_flow!='0'">{{ dialysate_flow }}</span>
+          <span class="unit" v-if="dialysate_flow!='0'">ml/min</span>
         </li>
       </ul>
       <ul>
         <li>
           <label>透析时长 : </label>
-          <span class="content">{{ dialysis_duration }}</span>
-          <span class="unit">h</span>
+          <span class="content" v-if="dialysis_duration_hour!='0'">{{ dialysis_duration_hour }}</span>
+          <span class="unit" v-if="dialysis_duration_hour!='0'">h</span>
+          <span class="content" v-if="dialysis_duration_minute!='0'">{{ dialysis_duration_minute }}</span>
+          <span class="unit" v-if="dialysis_duration_minute!='0'">min</span>
         </li>
         <li>
           <label>血流量 : </label>
-          <span class="content">{{ blood_flow_volume }}</span>
-          <span class="unit">ml/min</span>
+          <span class="content" v-if="blood_flow_volume!='0'">{{ blood_flow_volume }}</span>
+          <span class="unit" v-if="blood_flow_volume!='0'">ml/min</span>
         </li>
         <!-- <li>
           <label>置换方式 : </label>
@@ -54,23 +56,23 @@
         </li> -->
         <li>
           <label>维持 : </label>
-          <span class="content">{{ anticoagulant_weichi }}</span>
-          <span class="unit">mg/h</span>
+          <span class="content" v-if="anticoagulant_weichi!='0'">{{ anticoagulant_weichi }}</span>
+          <span class="unit" v-if="anticoagulant_weichi!='0'">mg/h</span>
         </li>
         <li>
           <label>钠 : </label>
-          <span class="content">{{ sodium }}</span>
-          <span class="unit">mmol/l</span>
+          <span class="content" v-if="sodium!='0'">{{ sodium }}</span>
+          <span class="unit" v-if="sodium!='0'">mmol/l</span>
         </li>
         <li>
           <label>葡萄糖 : </label>
-          <span class="content">{{ glucose }}</span>
-          <span class="unit">mmol/l</span>
+          <span class="content" v-if="glucose!='0'">{{ glucose }}</span>
+          <span class="unit" v-if="glucose!='0'">mmol/l</span>
         </li>
         <li>
           <label>透析液温度 : </label>
-          <span class="content">{{ dialysate_temperature }}</span>
-          <span class="unit">℃</span>
+          <span class="content" v-if="dialysate_temperature!='0'">{{ dialysate_temperature }}</span>
+          <span class="unit" v-if="dialysate_temperature!='0'">℃</span>
         </li>
       </ul>
       <ul>
@@ -80,8 +82,8 @@
         </li> -->
         <li>
           <label>脱水量 : </label>
-          <span class="content">{{ prescription_dewatering }}</span>
-          <span class="unit">L</span>
+          <span class="content" v-if="prescription_dewatering!='0'">{{ prescription_dewatering }}</span>
+          <span class="unit" v-if="prescription_dewatering!='0'">L</span>
         </li>
         <li>
           <label>抗疑剂 : </label>
@@ -89,23 +91,23 @@
         </li>
         <li>
           <label>总量: </label>
-          <span class="content">{{ anticoagulant_zongliang }}</span>
-          <span class="unit">mg</span>
+          <span class="content" v-if="anticoagulant_zongliang!='0'">{{ anticoagulant_zongliang }}</span>
+          <span class="unit" v-if="anticoagulant_zongliang!='0'">mg</span>
         </li>
         <li>
           <label>钙: </label>
-          <span class="content">{{ calcium }}</span>
-          <span class="unit">mmol/l</span>
+          <span class="content" v-if="calcium!='0'">{{ calcium }}</span>
+          <span class="unit" v-if="calcium!='0'">mmol/l</span>
         </li>
         <li>
           <label>干体重 : </label>
-          <span class="content">{{ dry_weight }}</span>
-          <span class="unit">kg</span>
+          <span class="content" v-if="dry_weight!='0'">{{ dry_weight }}</span>
+          <span class="unit" v-if="dry_weight!='0'">kg</span>
         </li>
         <li>
           <label>电导率 : </label>
-          <span class="content">{{ conductivity }}</span>
-          <span class="unit">mS/cm</span>
+          <span class="content" v-if="conductivity!='0'">{{ conductivity }}</span>
+          <span class="unit" v-if="conductivity!='0'">mS/cm</span>
         </li>
 
         <li>
@@ -186,6 +188,14 @@ export default {
     },
     dialysis_duration: function() {
       var v = this.getValueStr("dialysis_duration", "dialysis_duration")
+      return v.length == 0 ? "0" : v
+    },
+    dialysis_duration_hour:function(){
+      var v = this.getValueStr("dialysis_duration_hour", "dialysis_duration_hour")
+      return v.length == 0 ? "0" : v
+    },
+    dialysis_duration_minute:function(){
+      var v = this.getValueStr("dialysis_duration_minute", "dialysis_duration_minute")
       return v.length == 0 ? "0" : v
     },
     blood_flow_volume: function() {

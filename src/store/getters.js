@@ -62,5 +62,7 @@ const getters = {
   observation_content: state => state.global_config.observation_content,
   units: state => state.global_config.units,
   good_unit:state => state.global_config.good_unit,
+
+  temp_params: state => state.temp_params
 }
 export default getters

@@ -22,17 +22,17 @@
       </tr>
       <tr v-for="(monitor, index) in monitores" :key="index">
         <td>{{ parseTime(monitor.operate_time, "{y}-{m}-{d} {h}:{i}") }}</td>
-        <td>{{ monitor.systolic_blood_pressure }}/{{ monitor.diastolic_blood_pressure }}</td>
-        <td>{{ monitor.pulse_frequency }}</td>
-        <td>{{ monitor.breathing_rate }}</td>
-        <td>{{ monitor.blood_flow_volume }}</td>
-        <td>{{ monitor.venous_pressure }}</td>
-        <td>{{ monitor.transmembrane_pressure }}</td>
-        <td>{{ monitor.ultrafiltration_volume }}</td>
-        <td>{{ monitor.sodium_concentration }}</td>
-        <td>{{ monitor.dialysate_temperature }}</td>
-        <td>{{ monitor.replacement_rate }}</td>
-        <td>{{ monitor.displacement_quantity }}</td>        
+        <td>{{ monitor.systolic_blood_pressure?monitor.systolic_blood_pressure:'' }}/{{ monitor.diastolic_blood_pressure?monitor.diastolic_blood_pressure:'' }}</td>
+        <td>{{ monitor.pulse_frequency?monitor.pulse_frequency:'' }}</td>
+        <td>{{ monitor.breathing_rate?monitor.breathing_rate:'' }}</td>
+        <td>{{ monitor.blood_flow_volume?monitor.blood_flow_volume:'' }}</td>
+        <td>{{ monitor.venous_pressure?monitor.venous_pressure:'' }}</td>
+        <td>{{ monitor.transmembrane_pressure?monitor.transmembrane_pressure:'' }}</td>
+        <td>{{ monitor.ultrafiltration_volume?monitor.ultrafiltration_volume:'' }}</td>
+        <td>{{ monitor.sodium_concentration?monitor.sodium_concentration:'' }}</td>
+        <td>{{ monitor.dialysate_temperature?monitor.dialysate_temperature:'' }}</td>
+        <td>{{ monitor.replacement_rate?monitor.replacement_rate:'' }}</td>
+        <td>{{ monitor.displacement_quantity?monitor.displacement_quantity:'' }}</td>        
         <td>{{ monitor.symptom }}</td>
         <td>{{ monitor.dispose }}</td>
         <td>{{ monitor.result }}</td>
