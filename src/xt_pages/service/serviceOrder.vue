@@ -49,7 +49,7 @@
         <li  tag="li" class="items" >
           <div class="inner">
             <h2 class="name">免费版</h2>
-            <p class="text">最多可管理20位患者</p>
+            <p class="text">最多可管理100位患者</p>
             <span class="price size">免费使用</span>
             <!-- <span  @click="isSCRMClick = 1" v-if="isSCRMClick == 2" class="buy active">已选购</span> -->
             <span class="buy active">已开通</span>
@@ -58,8 +58,8 @@
         <li  tag="li" class="items" >
           <div class="inner">
             <h2 class="name">标准版</h2>
-            <p class="text">最多可管理60位患者</p>
-            <span class="price"><i>￥</i>1998<span class="year">/ 年</span></span>
+            <p class="text">最多可管理200位患者</p>
+            <span class="price"><i>￥</i>6980<span class="year">/ 年</span></span>
             <!-- <span  @click="isWxClick = 1" v-if="isWxClick == 2" class="buy active">已选购</span> -->
             <!-- <span class="buy active">已开通</span> -->
             <!-- <span @click="selectXt(1)" v-if="isBZClick == 2" class="buy active">已选购</span> -->
@@ -71,7 +71,7 @@
           <div class="inner">
             <h2 class="name">专业版</h2>
             <p class="text">管理的患者数无限制</p>
-            <span class="price"><i>￥</i>9998<span class="year">/ 年</span></span>
+            <span class="price"><i>￥</i>15800<span class="year">/ 年</span></span>
             <!-- <span class="price"><i>￥</i>23888<span class="year">/ 年</span></span> -->
             <!-- <span @click="selectXt(8)" v-if="isXTClick == 2" class="buy active">已选购</span>
             <span @click="selectXt(8)" v-if="isXTClick == 1" class="buy ">立即选购</span> -->
