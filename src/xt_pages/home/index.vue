@@ -164,7 +164,7 @@ export default {
         used:'已使用0天',
         name:'免费版本',
         desc:'当前为免费版',
-        detail:'可管理20位（含）以下患者',
+        detail:'可管理100位（含）以下患者',
         leave:'剩余0天',
         pay_status:false,
       },
@@ -229,22 +229,22 @@ export default {
         case 2:
           //免费版本不会过期，但有人数限制，免费版，可以管理20位（含）以下患者，当患者数过了20位，系统不能正常使用，达到18位时，要提醒购买,超过60位，要购买专业版
           pce = 0;
-          if(this.patientTotal>60) {
+          if(this.patientTotal>200) {
             leave = "管理患者数已达"+this.patientTotal+"位，请购买专业版";
             pce = 100;
-          }else if(this.patientTotal>20) {
+          }else if(this.patientTotal>100) {
             leave = "管理患者数已达"+this.patientTotal+"位，请购买标准版";
             pce = 100;
-          }else if(this.patientTotal>=18) {
+          }else if(this.patientTotal>=90) {
             leave = "管理患者数已达"+this.patientTotal+"位，建议购买标准版";
-            pce = Math.round(this.patientTotal/20*100)
+            pce = Math.round(this.patientTotal/100*100)
           }
           pce = "width:"+pce+"%";
           this.subscibeBan={
             used:'已使用'+used+'天',
             name:'免费版',
             desc:'当前为免费版',
-            detail:'可管理20位（含）以下患者',
+            detail:'可管理100位（含）以下患者',
             leave:leave,
             pay_status:leave?true:false,
             pce:pce,
@@ -279,12 +279,12 @@ export default {
           if (leaveTime<0){
             leave = "已经过期";
             pce = "100";
-          } else if(this.patientTotal>60) {
+          } else if(this.patientTotal>200) {
             leave = "管理患者数已达"+this.patientTotal+"位，请购买专业版";
             pce = "width:100%";
-          } else if(this.patientTotal>=58) {
+          } else if(this.patientTotal>=190) {
               leave = "管理患者数已达"+this.patientTotal+"位，建议购买专业版";
-              pce = Math.round(this.patientTotal/60*100);
+              pce = Math.round(this.patientTotal/200*100);
           } else {
             leave = Math.floor(leaveTime/86400);
             leave = leave>30?"":'剩余'+leave+'天，建议购买标准版';
@@ -296,7 +296,7 @@ export default {
             used:'已使用'+used+'天',
             name:'标准版',
             desc:'当前为标准版',
-            detail:'可管理60位（含）以下患者',
+            detail:'可管理200位（含）以下患者',
             leave:leave,
             pay_status:leave?true:false,
             pce:pce,
